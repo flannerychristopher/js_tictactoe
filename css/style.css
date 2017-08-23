@@ -1,3 +1,31 @@
+html {
+  box-sizing: border-box; }
 
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+#container {
+  max-width: 600px;
+  margin: 2em auto; }
+
+.box {
+  height: 200px;
+  width: 200px;
+  float: left; }
+
+#box0,
+#box1,
+#box3,
+#box4 {
+  border-right: 5px solid black;
+  border-bottom: 5px solid black; }
+
+#box2,
+#box5 {
+  border-bottom: 5px solid black; }
+
+#box6,
+#box7 {
+  border-right: 5px solid black; }
 
 /*# sourceMappingURL=style.css.map */
