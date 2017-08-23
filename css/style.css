@@ -4,6 +4,9 @@ html {
 *, *:before, *:after {
   box-sizing: inherit; }
 
+body {
+  font-family: "Permanent Marker", cursive; }
+
 #container {
   max-width: 600px;
   margin: 2em auto; }
@@ -11,7 +14,11 @@ html {
 .box {
   height: 200px;
   width: 200px;
-  float: left; }
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 150px; }
 
 #box0,
 #box1,
