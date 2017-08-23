@@ -5,10 +5,10 @@ html {
   box-sizing: inherit; }
 
 body {
-  font-family: "Permanent Marker", cursive; }
+  font-family: "Permanent Marker", cursives; }
 
 #container {
-  max-width: 600px;
+  max-width: 620px;
   margin: 2em auto; }
 
 .box {
@@ -24,15 +24,15 @@ body {
 #box1,
 #box3,
 #box4 {
-  border-right: 5px solid black;
-  border-bottom: 5px solid black; }
+  border-right: 10px solid black;
+  border-bottom: 10px solid black; }
 
 #box2,
 #box5 {
-  border-bottom: 5px solid black; }
+  border-bottom: 10px solid black; }
 
 #box6,
 #box7 {
-  border-right: 5px solid black; }
+  border-right: 10px solid black; }
 
 /*# sourceMappingURL=style.css.map */

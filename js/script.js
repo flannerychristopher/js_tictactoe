@@ -1,18 +1,29 @@
 let containerElement = document.getElementById('container');
+let turn = 0;
+
+function isEven(num) {
+	if (num % 2 === 0) {
+		return true;
+	}
+}
 
 (function() {
 	for (i = 0; i < 9; i++) {
 		let box = document.createElement('div');
 		box.id = `box${i}`;
 		box.className = 'box';
-		box.innerText = 'X';
 		containerElement.appendChild(box);
 	}
 })();
 
 containerElement.addEventListener('click', () => {
 	let box = event.target;
-	box.textContent = 'X';
-
+	if (isEven(turn)) {
+		box.textContent = 'X';
+		turn++;
+	} else {
+		box.textContent = 'O';
+		turn++;
+	}
 
 });
