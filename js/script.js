@@ -10,6 +10,32 @@ function isEven(num) {
 	}
 }
 
+
+
+const game = {
+	listener: function() {
+		containerElement.addEventListener('click', game.handler, false);
+	},
+
+	handler: function() {
+		let box = event.target;
+		if (isEven(turn)) {
+			box.textContent = 'X';
+			turn++;
+			messageElement.textContent = message2;
+		} else {
+			box.textContent = 'O';
+			turn++;
+			messageElement.textContent = message1;
+		}
+		// box.removeEventListener('click', this.handler, false);
+	}
+
+
+
+};
+
+
 (function() {
 	messageElement.textContent = message1;
 	for (i = 0; i < 9; i++) {
@@ -18,17 +44,5 @@ function isEven(num) {
 		box.className = 'box';
 		containerElement.appendChild(box);
 	}
+	game.listener();
 })();
-
-containerElement.addEventListener('click', () => {
-	let box = event.target;
-	if (isEven(turn)) {
-		box.textContent = 'X';
-		turn++;
-		messageElement.textContent = message2;
-	} else {
-		box.textContent = 'O';
-		turn++;
-		messageElement.textContent = message1;
-	}
-});
