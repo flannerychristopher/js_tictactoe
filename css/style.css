@@ -5,7 +5,8 @@ html {
   box-sizing: inherit; }
 
 body {
-  font-family: "Permanent Marker", cursive; }
+  font-family: "Permanent Marker", cursive;
+  background-image: url("../img/paper.jpg"); }
 
 #container {
   width: 620px;
@@ -18,7 +19,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 150px; }
+  font-size: 150px;
+  background: transparent; }
 
 #box0,
 #box1,
