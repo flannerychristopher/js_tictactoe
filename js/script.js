@@ -22,6 +22,7 @@ const game = {
 
 	reset: function() {
 		containerElement.innerHTML = '';
+		game.boxes = [];
 		this.render();
 		if (game.isEven(game.turn)) {
 			messageElement.textContent = "Player 2 wins! It's a new game and it's Player 1's turn.";
@@ -49,7 +50,6 @@ const game = {
 			messageElement.textContent = message1;
 		}
 		box.removeEventListener('click', game.handler, false);
-		// game.checkWin();
 		game.checkWin() ? game.reset() : console.log('no win');
 	},
 
@@ -88,7 +88,12 @@ const game = {
 				console.log('winH');
 				return true;
 				break;
+			case game.turn % 9 === 0:
+				console.log('draw');
+				return false;
+				break;
 			default:
+				return false;
 				console.log('play on');
 		}
 
