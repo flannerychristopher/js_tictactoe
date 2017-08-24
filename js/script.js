@@ -44,7 +44,7 @@ const game = {
 		}
 	},
 
-	handler: function() {
+	handler: function(event) {
 		let box = event.target;
 		let boxNumber = event.target.id[3];
 		if (game.playerTurn === 1) {
@@ -97,8 +97,8 @@ const game = {
 				console.log('winH');
 				return true;
 			default:
-				return false;
 				console.log('play on');
+				return false;			
 		}
 	}
 
