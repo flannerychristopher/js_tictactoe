@@ -20,6 +20,16 @@ const game = {
 		}
 	},
 
+	reset: function() {
+		containerElement.innerHTML = '';
+		this.render();
+		if (game.isEven(game.turn)) {
+			messageElement.textContent = "Player 2 wins! It's a new game and it's Player 1's turn.";
+		} else {
+			messageElement.textContent = "Player 1 wins! It's a new game and it's Player 2's turn.";
+		}
+	},
+
 	isEven: function(num) {
 		if (num % 2 === 0) return true;
 	},
@@ -40,7 +50,7 @@ const game = {
 		}
 		box.removeEventListener('click', game.handler, false);
 		// game.checkWin();
-		game.checkWin() ? console.log('game over') : console.log('no win');
+		game.checkWin() ? game.reset() : console.log('no win');
 	},
 
 	checkWin: function() {
