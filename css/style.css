@@ -36,9 +36,10 @@ body {
   border-right: 10px solid black; }
 
 #message {
+  padding-top: 2em;
   font-family: Palatino, sans-serif;
+  font-size: 1.5em;
   text-align: center;
-  clear: both;
-  font-size: 3em; }
+  clear: both; }
 
 /*# sourceMappingURL=style.css.map */

@@ -28,7 +28,7 @@ const game = {
 			messageElement.textContent = "Player 2 wins! It's a new game and it's Player 1's turn.";
 		} else {
 			messageElement.textContent = "Player 1 wins! It's a new game and it's Player 2's turn.";
-		}
+		} 
 	},
 
 	isEven: function(num) {
@@ -50,6 +50,7 @@ const game = {
 			messageElement.textContent = message1;
 		}
 		box.removeEventListener('click', game.handler, false);
+
 		game.checkWin() ? game.reset() : console.log('no win');
 	},
 
@@ -59,39 +60,30 @@ const game = {
 			case box[0] === box[1] && box[0] === box[2]:
 				console.log('winA');
 				return true;
-				break;
 			case box[3] === box[4] && box[3] === box[5]:
 				console.log('winB');
 				return true;
-				break;
 			case box[6] === box[7] && box[6] === box[8]:
 				console.log('winC');
 				return true;
-				break;
 			case box[0] === box[3] && box[0] === box[6]:
 				console.log('winD');
 				return true;
-				break;
 			case box[1] === box[4] && box[1] === box[7]:
 				console.log('winE');
 				return true;
-				break;
 			case box[2] === box[5] && box[2] === box[8]:
 				console.log('winF');
 				return true;
-				break;
 			case box[0] === box[4] && box[0] === box[8]:
 				console.log('winG');
 				return true;
-				break;
 			case box[2] === box[4] && box[2] === box[6]:
 				console.log('winH');
 				return true;
-				break;
 			case game.turn % 9 === 0:
 				console.log('draw');
 				return false;
-				break;
 			default:
 				return false;
 				console.log('play on');
