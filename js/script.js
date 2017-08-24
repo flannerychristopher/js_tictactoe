@@ -43,9 +43,34 @@ const game = {
 	},
 
 	checkWin: function() {
-			if (game.boxes[0] === game.boxes[1] === game.boxes[2]) {
-				console.log('win');
-			}
+		switch(true) {
+			case game.boxes[0] === game.boxes[1] === game.boxes[2]:
+				console.log('winA');
+				break;
+			case game.boxes[3] === game.boxes[4] === game.boxes[5]:
+				console.log('winB');
+				break;
+			case game.boxes[6] === game.boxes[7] === game.boxes[8]:
+				console.log('winC');
+				break;
+			case game.boxes[0] === game.boxes[3] === game.boxes[6]:
+				console.log('winD');
+				break;
+			case game.boxes[1] === game.boxes[4] === game.boxes[7]:
+				console.log('winE');
+				break;
+			case game.boxes[2] === game.boxes[5] === game.boxes[8]:
+				console.log('winF');
+				break;
+			case game.boxes[0] === game.boxes[4] === game.boxes[8]:
+				console.log('winG');
+				break;
+			case game.boxes[2] === game.boxes[4] === game.boxes[8]:
+				console.log('winH');
+				break;
+			default:
+				console.log('play on');
+		}
 
 	}
 
