@@ -1,14 +1,13 @@
 const containerElement = document.getElementById('container');
 const messageElement = document.getElementById('message');
-const message1 = "Player 1's turn!";
-const message2 = "Player 2's turn!";
 
 const game = {
-	turn: 0,
+	playerTurn: 1,
+	turnCount: 0,
 	boxes: [],
 
 	render: function() {
-		messageElement.textContent = message1;
+		messageElement.textContent = "Player 1's turn!";
 		for (i = 0; i < 9; i++) {
 			let box = document.createElement('div');
 			box.textContent = ' ';
@@ -24,34 +23,50 @@ const game = {
 		containerElement.innerHTML = '';
 		game.boxes = [];
 		this.render();
-		if (game.isEven(game.turn)) {
+		game.turnCount = 0;
+	},
+
+	win: function() {
+		game.reset();
+		if (game.playerTurn === 1) {
 			messageElement.textContent = "Player 2 wins! It's a new game and it's Player 1's turn.";
 		} else {
 			messageElement.textContent = "Player 1 wins! It's a new game and it's Player 2's turn.";
-		} 
+		}
 	},
 
-	isEven: function(num) {
-		if (num % 2 === 0) return true;
+	draw: function() {
+		game.reset();
+		if (game.playerTurn === 1) {
+			messageElement.textContent = "The game was a draw. It's a new game and it's Player 1's turn.";
+		} else {
+			messageElement.textContent = "The game was a draw. It's a new game and it's Player 2's turn.";
+		}
 	},
 
 	handler: function() {
 		let box = event.target;
 		let boxNumber = event.target.id[3];
-		if (game.isEven(game.turn)) {
+		if (game.playerTurn === 1) {
 			box.textContent = 'X';
 			game.boxes[boxNumber] = true;
-			game.turn++;
-			messageElement.textContent = message2;
+			game.playerTurn = 2;
+			game.turnCount++;
+			messageElement.textContent = "Player 2's turn!";
 		} else {
 			box.textContent = 'O';
 			game.boxes[boxNumber] = false;
-			game.turn++;
-			messageElement.textContent = message1;
+			game.playerTurn = 1;
+			game.turnCount++;
+			messageElement.textContent = "Player 1's turn!";
 		}
 		box.removeEventListener('click', game.handler, false);
 
-		game.checkWin() ? game.reset() : console.log('no win');
+		if (game.checkWin()) {
+			game.win();
+		} else if (game.turnCount === 9) {
+			game.draw();
+		}
 	},
 
 	checkWin: function() {
@@ -81,14 +96,10 @@ const game = {
 			case box[2] === box[4] && box[2] === box[6]:
 				console.log('winH');
 				return true;
-			case game.turn % 9 === 0:
-				console.log('draw');
-				return false;
 			default:
 				return false;
 				console.log('play on');
 		}
-
 	}
 
 };
