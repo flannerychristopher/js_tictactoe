@@ -10,11 +10,17 @@ function isEven(num) {
 	}
 }
 
-
-
 const game = {
-	listener: function() {
-		containerElement.addEventListener('click', game.handler, false);
+
+	render: function() {
+		messageElement.textContent = message1;
+		for (i = 0; i < 9; i++) {
+			let box = document.createElement('div');
+			box.id = `box${i}`;
+			box.className = 'box';
+			box.addEventListener('click', game.handler, false);
+			containerElement.appendChild(box);
+		}
 	},
 
 	handler: function() {
@@ -28,21 +34,14 @@ const game = {
 			turn++;
 			messageElement.textContent = message1;
 		}
-		// box.removeEventListener('click', this.handler, false);
+		box.removeEventListener('click', game.handler, false);
+	},
+
+	test: function() {
+		console.log('handler');
 	}
 
 
 
 };
-
-
-(function() {
-	messageElement.textContent = message1;
-	for (i = 0; i < 9; i++) {
-		let box = document.createElement('div');
-		box.id = `box${i}`;
-		box.className = 'box';
-		containerElement.appendChild(box);
-	}
-	game.listener();
-})();
+game.render();
