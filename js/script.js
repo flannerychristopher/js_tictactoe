@@ -12,7 +12,7 @@ const game = {
 		for (i = 0; i < 9; i++) {
 			let box = document.createElement('div');
 			box.textContent = ' ';
-			game.boxes.push(box.textContent);
+			game.boxes.push(i);
 			box.id = `box${i}`;
 			box.className = 'box';
 			box.addEventListener('click', game.handler, false);
@@ -39,34 +39,44 @@ const game = {
 			messageElement.textContent = message1;
 		}
 		box.removeEventListener('click', game.handler, false);
-		game.checkWin();
+		// game.checkWin();
+		game.checkWin() ? console.log('game over') : console.log('no win');
 	},
 
 	checkWin: function() {
+		let box = game.boxes;
 		switch(true) {
-			case game.boxes[0] === game.boxes[1] === game.boxes[2]:
+			case box[0] === box[1] && box[0] === box[2]:
 				console.log('winA');
+				return true;
 				break;
-			case game.boxes[3] === game.boxes[4] === game.boxes[5]:
+			case box[3] === box[4] && box[3] === box[5]:
 				console.log('winB');
+				return true;
 				break;
-			case game.boxes[6] === game.boxes[7] === game.boxes[8]:
+			case box[6] === box[7] && box[6] === box[8]:
 				console.log('winC');
+				return true;
 				break;
-			case game.boxes[0] === game.boxes[3] === game.boxes[6]:
+			case box[0] === box[3] && box[0] === box[6]:
 				console.log('winD');
+				return true;
 				break;
-			case game.boxes[1] === game.boxes[4] === game.boxes[7]:
+			case box[1] === box[4] && box[1] === box[7]:
 				console.log('winE');
+				return true;
 				break;
-			case game.boxes[2] === game.boxes[5] === game.boxes[8]:
+			case box[2] === box[5] && box[2] === box[8]:
 				console.log('winF');
+				return true;
 				break;
-			case game.boxes[0] === game.boxes[4] === game.boxes[8]:
+			case box[0] === box[4] && box[0] === box[8]:
 				console.log('winG');
+				return true;
 				break;
-			case game.boxes[2] === game.boxes[4] === game.boxes[8]:
+			case box[2] === box[4] && box[2] === box[6]:
 				console.log('winH');
+				return true;
 				break;
 			default:
 				console.log('play on');
@@ -88,4 +98,4 @@ game.render();
 // 2 5 8
 
 // 0 4 8
-// 2 4 8 
+// 2 4 6
