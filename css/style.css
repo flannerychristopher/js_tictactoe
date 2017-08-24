@@ -6,15 +6,16 @@ html {
 
 body {
   font-family: "Permanent Marker", cursive;
-  background-image: url("../img/paper.jpg"); }
+  background-image: url("../img/paper.jpg");
+  background-size: cover; }
 
 #container {
-  width: 620px;
+  width: 470px;
   margin: 2em auto; }
 
 .box {
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
   float: left;
   display: flex;
   justify-content: center;
@@ -38,10 +39,13 @@ body {
   border-right: 10px solid black; }
 
 #message {
-  padding-top: 2em;
+  display: block;
+  clear: both;
+  padding: 2em 0;
   font-family: Palatino, sans-serif;
   font-size: 1.5em;
+  font-weight: bold;
   text-align: center;
-  clear: both; }
+  margin-left: -20px; }
 
 /*# sourceMappingURL=style.css.map */

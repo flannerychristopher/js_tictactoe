@@ -11,24 +11,24 @@ const game = {
 		for (i = 0; i < 9; i++) {
 			let box = document.createElement('div');
 			box.textContent = ' ';
-			game.boxes.push(i);
+			this.boxes.push(i);
 			box.id = `box${i}`;
 			box.className = 'box';
-			box.addEventListener('click', game.handler, false);
+			box.addEventListener('click', this.handler, false);
 			containerElement.appendChild(box);
 		}
 	},
 
 	reset: function() {
 		containerElement.innerHTML = '';
-		game.boxes = [];
+		this.boxes = [];
 		this.render();
-		game.turnCount = 0;
+		this.turnCount = 0;
 	},
 
 	win: function() {
-		game.reset();
-		if (game.playerTurn === 1) {
+		this.reset();
+		if (this.playerTurn === 1) {
 			messageElement.textContent = "Player 2 wins! It's a new game and it's Player 1's turn.";
 		} else {
 			messageElement.textContent = "Player 1 wins! It's a new game and it's Player 2's turn.";
@@ -36,8 +36,8 @@ const game = {
 	},
 
 	draw: function() {
-		game.reset();
-		if (game.playerTurn === 1) {
+		this.reset();
+		if (this.playerTurn === 1) {
 			messageElement.textContent = "The game was a draw. It's a new game and it's Player 1's turn.";
 		} else {
 			messageElement.textContent = "The game was a draw. It's a new game and it's Player 2's turn.";
@@ -70,7 +70,7 @@ const game = {
 	},
 
 	checkWin: function() {
-		let box = game.boxes;
+		let box = this.boxes;
 		switch(true) {
 			case box[0] === box[1] && box[0] === box[2]:
 				console.log('winA');
@@ -97,7 +97,6 @@ const game = {
 				console.log('winH');
 				return true;
 			default:
-				console.log('play on');
 				return false;			
 		}
 	}
@@ -105,15 +104,3 @@ const game = {
 };
 
 game.render();
-
-// possible win combos:
-// 0 1 2
-// 3 4 5
-// 6 7 8
-
-// 0 3 6
-// 1 4 7
-// 2 5 8
-
-// 0 4 8
-// 2 4 6
