@@ -19,31 +19,6 @@ const game = {
 		}
 	},
 
-	reset: function() {
-		containerElement.innerHTML = '';
-		this.boxes = [];
-		this.render();
-		this.turnCount = 0;
-	},
-
-	win: function() {
-		this.reset();
-		if (this.playerTurn === 1) {
-			messageElement.textContent = "Player 2 wins! It's a new game and it's Player 1's turn.";
-		} else {
-			messageElement.textContent = "Player 1 wins! It's a new game and it's Player 2's turn.";
-		}
-	},
-
-	draw: function() {
-		this.reset();
-		if (this.playerTurn === 1) {
-			messageElement.textContent = "The game was a draw. It's a new game and it's Player 1's turn.";
-		} else {
-			messageElement.textContent = "The game was a draw. It's a new game and it's Player 2's turn.";
-		}
-	},
-
 	handler: function(event) {
 		let box = event.target;
 		let boxNumber = event.target.id[3];
@@ -66,6 +41,31 @@ const game = {
 			game.win();
 		} else if (game.turnCount === 9) {
 			game.draw();
+		}
+	},
+
+	reset: function() {
+		containerElement.innerHTML = '';
+		this.boxes = [];
+		this.render();
+		this.turnCount = 0;
+	},
+
+	win: function() {
+		this.reset();
+		if (this.playerTurn === 1) {
+			messageElement.textContent = "Player 2 wins! It's a new game and it's Player 1's turn.";
+		} else {
+			messageElement.textContent = "Player 1 wins! It's a new game and it's Player 2's turn.";
+		}
+	},
+
+	draw: function() {
+		this.reset();
+		if (this.playerTurn === 1) {
+			messageElement.textContent = "The game was a draw. It's a new game and it's Player 1's turn.";
+		} else {
+			messageElement.textContent = "The game was a draw. It's a new game and it's Player 2's turn.";
 		}
 	},
 
